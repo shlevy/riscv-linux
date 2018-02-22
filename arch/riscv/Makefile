@@ -11,8 +11,8 @@
 LDFLAGS         :=
 OBJCOPYFLAGS    := -O binary
 LDFLAGS_vmlinux :=
-KBUILD_AFLAGS_MODULE += -fPIC
-KBUILD_CFLAGS_MODULE += -fPIC
+KBUILD_AFLAGS_MODULE += -fno-PIC -mcmodel=medany
+KBUILD_CFLAGS_MODULE += -fno-PIC -mcmodel=medany
 
 KBUILD_DEFCONFIG = defconfig
 
