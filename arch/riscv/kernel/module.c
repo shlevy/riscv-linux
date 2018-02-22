@@ -150,8 +150,8 @@ static int apply_r_riscv_call_rela(struct module *me, u32 *location,
 	return 0;
 }
 
-static int apply_r_riscv_relax_rela(struct module *me, u32 *location,
-				    Elf_Addr v)
+static int apply_r_riscv_noop_rela(struct module *me, u32 *location,
+				   Elf_Addr v)
 {
 	return 0;
 }
@@ -181,7 +181,8 @@ static int (*reloc_handlers_rela[]) (struct module *me, u32 *location,
 	[R_RISCV_PCREL_LO12_I]		= apply_r_riscv_pcrel_lo12_i_rela,
 	[R_RISCV_PCREL_LO12_S]		= apply_r_riscv_pcrel_lo12_s_rela,
 	[R_RISCV_CALL]			= apply_r_riscv_call_rela,
-	[R_RISCV_RELAX]			= apply_r_riscv_relax_rela,
+	[R_RISCV_RELAX]			= apply_r_riscv_noop_rela,
+	[R_RISCV_ALIGN]			= apply_r_riscv_noop_rela,
 	[R_RISCV_ADD32]			= apply_r_riscv_add32_rela,
 	[R_RISCV_SUB32]			= apply_r_riscv_sub32_rela,
 };
